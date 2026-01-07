@@ -1,29 +1,29 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://blog.l33chers.de/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'l33chers team blog'
 theme = 're-terminal'
 publishDir = 'docs'
 
 [outputs]
-  home = ["HTML", "JSON"]
+home = ["HTML", "JSON"]
 
 [menu]
-  [[menu.main]]
-    name = "Search"
-    url = "/search/"
-    weight = 100
+[[menu.main]]
+name = "Search"
+url = "/search/"
+weight = 100
 
 [params]
-  [params.giscus]
-    repo = "l33chers/blog.l33chers.de"
-    repoId = "R_kgDOQ1jI9w"
-    category = "Q&A"
-    categoryId = "DIC_kwDOQ1jI984C0sRm"
-    mapping = "pathname"
-    strict = "1"
-    reactionsEnabled = "1"
-    emitMetadata = "0"
-    inputPosition = "top"
-    theme = "dark"
-    lang = "en"
-    loading = "lazy"
+[params.giscus]
+repo = "l33chers/blog.l33chers.de"
+repoId = "R_kgDOQ1jI9w"
+category = "Q&A"
+categoryId = "DIC_kwDOQ1jI984C0sRm"
+mapping = "pathname"
+strict = "1"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "top"
+theme = "dark"
+lang = "en"
+loading = "lazy"

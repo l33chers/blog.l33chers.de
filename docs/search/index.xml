@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Search on My New Hugo Site</title>
-    <link>https://example.org/search/</link>
-    <description>Recent content in Search on My New Hugo Site</description>
+    <title>Search on l33chers team blog</title>
+    <link>https://blog.l33chers.de/search/</link>
+    <description>Recent content in Search on l33chers team blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://example.org/search/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://blog.l33chers.de/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
