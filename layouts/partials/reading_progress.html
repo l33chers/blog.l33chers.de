@@ -1,0 +1,29 @@
+{{- $contentType := $.Site.Params.contentTypeName | default "posts" -}}
+{{- if and .IsPage (eq .Type $contentType) -}}
+  {{- if not (or (eq (.Param "showReadingProgress") false) (eq (.Param "showReadingProgress") "false")) -}}
+    <div class="reading-progress" aria-hidden="true">
+      <div id="reading-progress-bar" class="reading-progress__bar"></div>
+    </div>
+    <script>
+      (function () {
+        var bar = document.getElementById("reading-progress-bar");
+        if (!bar) {
+          return;
+        }
+
+        function update() {
+          var doc = document.documentElement;
+          var body = document.body;
+          var scrollTop = doc.scrollTop || body.scrollTop;
+          var scrollHeight = (doc.scrollHeight || body.scrollHeight) - doc.clientHeight;
+          var percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+          bar.style.width = percent + "%";
+        }
+
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+      })();
+    </script>
+  {{- end -}}
+{{- end -}}

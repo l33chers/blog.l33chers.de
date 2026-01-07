@@ -14,7 +14,7 @@ url = "/search/"
 weight = 100
 
 [params]
-[params.giscus]
+  [params.giscus]
 repo = "l33chers/blog.l33chers.de"
 repoId = "R_kgDOQ1jI9w"
 category = "Q&A"
@@ -24,6 +24,9 @@ strict = "1"
 reactionsEnabled = "1"
 emitMetadata = "0"
 inputPosition = "top"
-theme = "dark"
-lang = "en"
-loading = "lazy"
+    theme = "dark"
+    lang = "en"
+    loading = "lazy"
+
+  [params.logo]
+    logoText = "l33chers"
