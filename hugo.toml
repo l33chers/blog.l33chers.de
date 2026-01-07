@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 're-terminal'
+publishDir = 'docs'
 
 [outputs]
   home = ["HTML", "JSON"]
