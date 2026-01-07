@@ -1,0 +1,13 @@
+{{- $pages := where .Site.RegularPages "Params.searchable" "ne" false -}}
+{{- $index := slice -}}
+{{- range $pages -}}
+  {{- $index = $index | append (dict
+      "title" .Title
+      "url" .RelPermalink
+      "summary" (.Summary | plainify)
+      "content" (.Plain | plainify)
+      "date" (.Date.Format "2006-01-02")
+      "tags" (delimit .Params.tags " ")
+    ) -}}
+{{- end -}}
+{{- $index | jsonify -}}

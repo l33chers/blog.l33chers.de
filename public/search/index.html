@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Search :: My New Hugo Site</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Type a query to search across posts and pages.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://example.org/search/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://example.org/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://example.org/img/theme-colors/orange.png">
+  <link rel="apple-touch-icon" href="https://example.org/img/theme-colors/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Search">
+<meta property="og:description" content="Type a query to search across posts and pages.
+" />
+<meta property="og:url" content="https://example.org/search/" />
+<meta property="og:site_name" content="My New Hugo Site" />
+
+  
+    <meta property="og:image" content="img/favicon/%!s(&lt;nil&gt;).png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+
+
+
+  <link href="/search/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://example.org/">
+  <div class="logo">
+    re-Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/search/">Search</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/search/" >Search</a></li>
+        
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+  
+    <div class="index-content">
+      <p>Type a query to search across posts and pages.</p>
+
+    </div>
+  
+
+  <div class="posts">
+    <article class="post on-list">
+      <div class="post-content">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+        <div id="search-status" class="post-meta">Loading search index...</div>
+      </div>
+    </article>
+  </div>
+
+  <div id="search-results" class="posts"></div>
+
+  <script>
+    (function () {
+      var input = document.getElementById("search-input");
+      var results = document.getElementById("search-results");
+      var status = document.getElementById("search-status");
+      var indexUrl = "\/index.json";
+      var index = [];
+
+      if (!input || !results || !status) {
+        return;
+      }
+
+      function normalize(value) {
+        return (value || "").toLowerCase();
+      }
+
+      function buildSnippet(item) {
+        var text = item.summary || item.content || "";
+        var snippet = text.replace(/\s+/g, " ").trim();
+        if (snippet.length > 220) {
+          return snippet.slice(0, 217) + "...";
+        }
+        return snippet;
+      }
+
+      function render(items, query) {
+        results.innerHTML = "";
+        if (!query) {
+          status.textContent = "Type to search.";
+          return;
+        }
+        if (!items.length) {
+          status.textContent = "No results.";
+          return;
+        }
+        status.textContent =
+          items.length + " result" + (items.length === 1 ? "" : "s");
+
+        var fragment = document.createDocumentFragment();
+        items.forEach(function (item) {
+          var article = document.createElement("article");
+          article.className = "post on-list";
+
+          var title = document.createElement("h1");
+          title.className = "post-title";
+          var link = document.createElement("a");
+          link.href = item.url || "#";
+          link.textContent = item.title || item.url || "Untitled";
+          title.appendChild(link);
+          article.appendChild(title);
+
+          if (item.date) {
+            var meta = document.createElement("div");
+            meta.className = "post-meta";
+            var time = document.createElement("time");
+            time.className = "post-date";
+            time.textContent = item.date;
+            meta.appendChild(time);
+            article.appendChild(meta);
+          }
+
+          var snippet = buildSnippet(item);
+          if (snippet) {
+            var content = document.createElement("div");
+            content.className = "post-content";
+            content.textContent = snippet;
+            article.appendChild(content);
+          }
+
+          fragment.appendChild(article);
+        });
+        results.appendChild(fragment);
+      }
+
+      function search(query) {
+        var q = normalize(query).trim();
+        if (!q) {
+          render([], "");
+          return;
+        }
+        var tokens = q.split(/\s+/).filter(Boolean);
+        var hits = [];
+        index.forEach(function (item) {
+          if (!item._haystack) {
+            return;
+          }
+          var match = tokens.every(function (token) {
+            return item._haystack.indexOf(token) !== -1;
+          });
+          if (match) {
+            hits.push(item);
+          }
+        });
+        render(hits, q);
+      }
+
+      fetch(indexUrl)
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Search index request failed");
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          index = (data || []).map(function (item) {
+            var haystack = normalize(
+              [item.title, item.summary, item.content, item.tags].join(" ")
+            );
+            item._haystack = haystack;
+            return item;
+          });
+          status.textContent = "Type to search.";
+          var params = new URLSearchParams(window.location.search);
+          var query = params.get("q");
+          if (query) {
+            input.value = query;
+            search(query);
+          }
+        })
+        .catch(function () {
+          status.textContent = "Failed to load search index.";
+        });
+
+      input.addEventListener("input", function () {
+        search(input.value);
+      });
+    })();
+  </script>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 're-terminal'
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[menu]
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 100
+
+[params]
+  [params.giscus]
+    repo = "l33chers/blog.l33chers.de"
+    repoId = "R_kgDOQ1jI9w"
+    category = "Q&A"
+    categoryId = "DIC_kwDOQ1jI984C0sRm"
+    mapping = "pathname"
+    strict = "1"
+    reactionsEnabled = "1"
+    emitMetadata = "0"
+    inputPosition = "top"
+    theme = "dark"
+    lang = "en"
+    loading = "lazy"

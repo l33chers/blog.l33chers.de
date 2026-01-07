@@ -1,0 +1,27 @@
+{{- $giscus := .Site.Params.giscus -}}
+{{- $repo := $giscus.repo | default "" -}}
+{{- $repoId := $giscus.repoId | default "" -}}
+{{- $category := $giscus.category | default "" -}}
+{{- $categoryId := $giscus.categoryId | default "" -}}
+{{- if and $repo $repoId $category $categoryId -}}
+  <div id="giscus"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{ $repo }}"
+    data-repo-id="{{ $repoId }}"
+    data-category="{{ $category }}"
+    data-category-id="{{ $categoryId }}"
+    data-mapping="{{ $giscus.mapping | default "pathname" }}"
+    data-strict="{{ $giscus.strict | default "0" }}"
+    data-reactions-enabled="{{ $giscus.reactionsEnabled | default "1" }}"
+    data-emit-metadata="{{ $giscus.emitMetadata | default "0" }}"
+    data-input-position="{{ $giscus.inputPosition | default "bottom" }}"
+    data-theme="{{ $giscus.theme | default "preferred_color_scheme" }}"
+    data-lang="{{ $giscus.lang | default .Site.Language.Lang | default "en" }}"
+    data-loading="{{ $giscus.loading | default "lazy" }}"
+    crossorigin="anonymous"
+    async
+  ></script>
+{{- else -}}
+  <!-- Configure Giscus in hugo.toml: params.giscus.repo, repoId, category, categoryId. -->
+{{- end -}}
