@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on l33chers team blog</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://blog.l33chers.de/tags/hugo/</link>
     <description>Recent content in Hugo on l33chers team blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Jan 2026 19:35:00 +0100</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jan 2026 19:35:00 +0100</lastBuildDate><atom:link href="https://blog.l33chers.de/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Demo</title>
-      <link>http://localhost:1313/posts/demo/</link>
+      <link>https://blog.l33chers.de/posts/demo/</link>
       <pubDate>Wed, 07 Jan 2026 19:35:00 +0100</pubDate>
       
-      <guid>http://localhost:1313/posts/demo/</guid>
+      <guid>https://blog.l33chers.de/posts/demo/</guid>
       <description>&lt;p&gt;Welcome to the new blog. This is a short demo post to confirm the theme,
 content rendering, and code formatting work as expected.&lt;/p&gt;
 &lt;h2 id=&#34;what-you-will-find-here&#34;&gt;What you will find here&lt;/h2&gt;
