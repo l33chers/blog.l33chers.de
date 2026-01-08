@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'l33chers team blog'
 theme = 're-terminal'
 publishDir = 'docs'
+canonifyURLs = true
+relativeURLs = false
 
 [outputs]
 home = ["HTML", "JSON"]
