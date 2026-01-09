@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/pascal/Git/blog.l33chers.de",
+	"sourceRoot": "/home/lex/l33chers/blog.l33chers.de",
 	"sources": [
 		"css/base.scss",
 		"themes/re-terminal/assets/css/variables.scss",

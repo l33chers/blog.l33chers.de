@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on l33chers team blog</title>
-    <link>https://blog.l33chers.de/posts/</link>
-    <description>Recent content in Posts on l33chers team blog</description>
+    <title>First_post on l33chers team blog</title>
+    <link>https://blog.l33chers.de/tags/first_post/</link>
+    <description>Recent content in First_post on l33chers team blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Jan 2026 19:35:00 +0100</lastBuildDate><atom:link href="https://blog.l33chers.de/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jan 2026 19:35:00 +0100</lastBuildDate><atom:link href="https://blog.l33chers.de/tags/first_post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World!</title>
       <link>https://blog.l33chers.de/posts/helloworld/</link>
