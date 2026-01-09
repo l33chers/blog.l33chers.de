@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Forensics on l33chers team blog</title>
+    <link>https://blog.l33chers.de/tags/forensics/</link>
+    <description>Recent content in Forensics on l33chers team blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jan 2026 18:01:33 +0100</lastBuildDate><atom:link href="https://blog.l33chers.de/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleted</title>
+      <link>https://blog.l33chers.de/posts/deleted/</link>
+      <pubDate>Fri, 09 Jan 2026 18:01:33 +0100</pubDate>
+      
+      <guid>https://blog.l33chers.de/posts/deleted/</guid>
+      <description>&lt;p&gt;Challenge text:&lt;/p&gt;
+&lt;p&gt;One of the US Cyber Games administrators deleted a File that they need for the season 5 that they need to give to Brad. Recover the deleted file from the image and provide us with the flag for this file that Brad and Jessica paid a Graphic Artist to create.&lt;/p&gt;
+&lt;p&gt;Solution:&lt;/p&gt;
+&lt;p&gt;Open the disk image in Autopsy and search for deleted files and extract the deleted image - it&amp;rsquo;s the flag:&lt;/p&gt;</description>
+      <content>&lt;p&gt;Challenge text:&lt;/p&gt;
+&lt;p&gt;One of the US Cyber Games administrators deleted a File that they need for the season 5 that they need to give to Brad. Recover the deleted file from the image and provide us with the flag for this file that Brad and Jessica paid a Graphic Artist to create.&lt;/p&gt;
+&lt;p&gt;Solution:&lt;/p&gt;
+&lt;p&gt;Open the disk image in Autopsy and search for deleted files and extract the deleted image - it&amp;rsquo;s the flag:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.l33chers.de/images/ucgVdeletedflag.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
